@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+body{
+  background-color: #bcb8b1;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+p{
+}
+
+.textbox{
+  width: 100px;
+  height: 40px;
+  padding: 5px 20px 5px 20px;
+  margin: 0px;
+  border: 0px solid black;
+  border-radius: 20px;
+  background-color: ;
+}
+
+.opc{
+  width: 15px;
+  height: 15px;
+  margin: 6px;
+  background-color: black;
+}
+
+.resposta{
+  color: red;
+}
+</style>
+</head>
+  <body>
+    
+    <h2>Conversor de temperatura</h2>
+    <p>Digite um número: <input type="text" id="num" class="textbox"></p>
+    Resultado: <b><p id="resp" class="resposta"></p></b>
+    
+      Escolha a temperatura de origem:<br>
+      <input type="radio" class="opc" id="temp_origemC" name="fav_language"> <label>Celsius</label><br>
+      <input type="radio" class="opc" id="temp_origemF" name="fav_language"> <label>Fahrenheit</label><br>
+      <input type="radio" class="opc" id="temp_origemK" name="fav_language"> <label>Kelvin</label><br>
+    
+    <br>
+      
+      Escolha para qual temperatura converter:<br>
+      <input type="radio" class="opc"  id="temp_destinoC" name="destino"> <label>Celsius</label><br>
+      <input type="radio" class="opc"  id="temp_destinoF" name="destino"> <label>Fahrenheit</label><br>
+      <input type="radio" class="opc"  id="temp_destinoK" name="destino"> <label>Kelvin</label><br>
+    
+      
+      <br><button onclick="main()">Converter</button>
+    
+
+    <br><br>
+    
+  <script id="jsbin-javascript">
+// C to F =  (num * 9/5) + 32;
+// C to K = num + 273.15;
+// F to C = (num - 32) * 5/9;
+// F to K = (num - 32) * 5/9 + 273.15;
+// K to C = num - 273.15;
+// K to F = (num - 273.15) * 9/5 + 32;
+
+
+function main(){
+
+  var resp = document.getElementById("resp");
+  var num = document.getElementById("num").value;
+  
+  if(document.getElementById("num").checked == null){
+     resp.innerHTML = "Favor, inserir um número!!!";
+     }
+  if(document.getElementById("temp_origemC").checked === true){
+    if(document.getElementById("temp_destinoC").checked === true){
+      resp.innerHTML = num + " Cº";
+    }else if(document.getElementById("temp_destinoF").checked === true){
+      resp.innerHTML = (num * 9/5) + 32 + " Fº";
+    }else if(document.getElementById("temp_destinoK").checked === true){
+      resp.innerHTML = num + 273.15 + " Kº";
+    }    
+  }else{    
+    if(document.getElementById("temp_origemF").checked === true){
+        if(document.getElementById("temp_destinoC").checked === true){
+          resp.innerHTML = (num - 32) * 5/9 + " Cº";
+        }
+      else if(document.getElementById("temp_destinoK").checked === true){
+        resp.innerHTML = (num - 32) * 5/9 + 273.15 + " Kº";
+      }
+      else if(document.getElementById("temp_destinoF").checked === true){
+        resp.innerHTML = num + " Fº";
+      }
+    }else{
+      if(document.getElementById("temp_origemK").checked === true){
+        if(document.getElementById("temp_destinoK").checked === true){
+          resp.innerHTML = num + " Kº";
+        }else if(document.getElementById("temp_destinoC").checked === true){
+          resp.innerHTML = num - 273.15 + " C°";
+        }
+        else if(document.getElementById("temp_destinoF").checked === true){
+          resp.innerHTML = (num - 273.15) * 9/5 + 32 + " Fº";
+        }
+      }
+    }
+  }
+  
+}
+</script>
+
+
+<script id="jsbin-source-css" type="text/css">body{
+  background-color: #bcb8b1;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+p{
+}
+
+.textbox{
+  width: 100px;
+  height: 40px;
+  padding: 5px 20px 5px 20px;
+  margin: 0px;
+  border: 0px solid black;
+  border-radius: 20px;
+  background-color: ;
+}
+
+.opc{
+  width: 15px;
+  height: 15px;
+  margin: 6px;
+  background-color: black;
+}
+
+.resposta{
+  color: red;
+}</script>
+
+<script id="jsbin-source-javascript" type="text/javascript">// C to F =  (num * 9/5) + 32;
+// C to K = num + 273.15;
+// F to C = (num - 32) * 5/9;
+// F to K = (num - 32) * 5/9 + 273.15;
+// K to C = num - 273.15;
+// K to F = (num - 273.15) * 9/5 + 32;
+
+
+function main(){
+
+  var resp = document.getElementById("resp");
+  var num = document.getElementById("num").value;
+  
+  if(document.getElementById("num").checked == null){
+     resp.innerHTML = "Favor, inserir um número!!!";
+     }
+  if(document.getElementById("temp_origemC").checked === true){
+    if(document.getElementById("temp_destinoC").checked === true){
+      resp.innerHTML = num + " Cº";
+    }else if(document.getElementById("temp_destinoF").checked === true){
+      resp.innerHTML = (num * 9/5) + 32 + " Fº";
+    }else if(document.getElementById("temp_destinoK").checked === true){
+      resp.innerHTML = num + 273.15 + " Kº";
+    }    
+  }else{    
+    if(document.getElementById("temp_origemF").checked === true){
+        if(document.getElementById("temp_destinoC").checked === true){
+          resp.innerHTML = (num - 32) * 5/9 + " Cº";
+        }
+      else if(document.getElementById("temp_destinoK").checked === true){
+        resp.innerHTML = (num - 32) * 5/9 + 273.15 + " Kº";
+      }
+      else if(document.getElementById("temp_destinoF").checked === true){
+        resp.innerHTML = num + " Fº";
+      }
+    }else{
+      if(document.getElementById("temp_origemK").checked === true){
+        if(document.getElementById("temp_destinoK").checked === true){
+          resp.innerHTML = num + " Kº";
+        }else if(document.getElementById("temp_destinoC").checked === true){
+          resp.innerHTML = num - 273.15 + " C°";
+        }
+        else if(document.getElementById("temp_destinoF").checked === true){
+          resp.innerHTML = (num - 273.15) * 9/5 + 32 + " Fº";
+        }
+      }
+    }
+  }
+  
+}</script></body>
+</html>
